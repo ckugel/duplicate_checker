@@ -4,7 +4,7 @@
 
 #include "LinkedList.h"
 
-template<class T>
+
 LinkedList::LinkedList() {
     head = nullptr;
     count = 0;

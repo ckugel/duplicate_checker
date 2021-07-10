@@ -9,12 +9,10 @@
 #include "Node.h"
 
 class LinkedList {
-
 private:
     Node *head;
     int count;
 public:
-    template <class T>
     LinkedList();
     template <class T>
     T peak();

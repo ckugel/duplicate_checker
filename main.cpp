@@ -3,13 +3,13 @@
 
 #include <bitset>
 #include "LinkedList.h"
+#include "Node.h"
 
 using namespace std;
 
 typedef bitset<8> BYTE;
 
 int main() {
-        LinkedList myListTest = new LinkedList();
 
 
     return 0;
