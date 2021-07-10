@@ -12,10 +12,13 @@ class LinkedList {
 
 private:
     Node head;
+    int count = 0;
 public:
     Node peak();
     Node pop();
     Node push(Node *newNode);
+    bool empty();
+    int size();
 };
 
 

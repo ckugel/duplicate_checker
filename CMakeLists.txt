@@ -3,4 +3,4 @@ project(duplicate_checker)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(duplicate_checker main.cpp FileClass.cpp FileClass.h LinkedList.cpp LinkedList.h Node.cpp Node.h)
+add_executable(duplicate_checker main.cpp LinkedList.cpp LinkedList.h Node.cpp Node.h)

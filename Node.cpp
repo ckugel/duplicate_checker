@@ -4,8 +4,8 @@
 
 #include "Node.h"
 
-Node::Node(const BYTE data) {
-    this->data = data;
+template<class V>
+Node::Node(V data) {
 }
 
 Node *Node::getNext(){
@@ -16,7 +16,10 @@ void Node::setNext(Node *next) {
     this->next = next;
 }
 
-const BYTE Node::getData() const {
-    return data;
+template<class V>
+V Node::getData() {
+    return (V*) data;
 }
+
+
 
