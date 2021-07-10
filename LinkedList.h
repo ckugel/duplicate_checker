@@ -11,14 +11,19 @@
 class LinkedList {
 
 private:
-    Node head;
-    int count = 0;
+    Node *head;
+    int count;
 public:
-    Node peak();
-    Node pop();
+    template <class T>
+    LinkedList();
+    template <class T>
+    T peak();
+    template <class T>
+    T pop();
+    template <class T>
     Node push(Node *newNode);
-    bool empty();
-    int size();
+    [[nodiscard]] bool empty() const;
+    [[nodiscard]] int size() const;
 };
 
 
