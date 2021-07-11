@@ -2,6 +2,8 @@
 #include <fstream>
 #include <filesystem>
 
+#include <vector>
+
 #include <bitset>
 #include "LinkedList.h"
 #include "Node.h"
@@ -42,12 +44,36 @@ int main() {
     return 0;
 }
 
-void getFileNames() {
-    std::string path = "E:";
-    for (const auto & entry : filesystem::directory_iterator(path))
-
-}
 
 void readFile(string path) {
-
+    typedef unsigned char uint8;
+    ifstream source("path", ios_base::binary);
+    LinkedList list;
+    while (source) {
+        ios::pos_type before = source.tellg();
+        uint8 x;
+        source >> x;
+        ios::pos_type after = source.tellg();
+        Node *temp = new Node((void*)x);
+        list.push(temp);
+    }
 }
+
+void getFileNames() {
+    string path = "E:";
+    string temp;
+    vector<string> paths;
+    for (const auto & entry : filesystem::directory_iterator(path)) {
+        temp = (basic_string<char> &&) entry.path();
+        paths.push_back(temp);
+        readFile(temp);
+    }
+    for (int i = 0; i < paths.size(); i++) {
+        for (const auto & entry : filesystem::directory_iterator(paths[i])) {
+            temp = (basic_string<char> &&) entry.path();
+            paths.push_back(temp);
+            readFile(temp);
+        }
+    }
+}
+
