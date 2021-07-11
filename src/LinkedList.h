@@ -19,8 +19,8 @@ public:
     Node pop();
     Node push(Node *newNode);
 
-    [[nodiscard]] bool empty() const;
-    [[nodiscard]] int size() const;
+    bool empty();
+    int size();
 };
 
 

@@ -30,15 +30,15 @@ Node LinkedList::push(Node *newNode) {
     return *newNode;
 }
 
-bool LinkedList::empty() const {
-    if (count >= 0) {
-        return false;
+bool LinkedList::empty() {
+    if (head->getNext() == nullptr) {
+        return true;
     }
     else {
-        return true;
+        return false;
     }
 }
 
-int LinkedList::size() const {
+int LinkedList::size() {
     return count;
 }

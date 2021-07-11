@@ -3,4 +3,4 @@ project(duplicate_checker)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(duplicate_checker main.cpp LinkedList.cpp LinkedList.h Node.cpp Node.h)
+add_executable(duplicate_checker src/main.cpp src/LinkedList.cpp src/LinkedList.h src/Node.cpp src/Node.h src/Tree.cpp src/Tree.h src/treeNode.cpp src/treeNode.h)
