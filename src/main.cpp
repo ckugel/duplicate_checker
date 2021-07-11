@@ -9,10 +9,13 @@
 #include "LinkedList.h"
 
 using namespace std;
+namespace fs = std::filesystem;
 
 void strReplacement(string &str, const char& toBeReplaced, char toReplaceWith) {
     while (str.find(toBeReplaced) >=0 && str.find(toBeReplaced) <= str.size()) {
-        str[str.find(toBeReplaced)] = toReplaceWith;
+        int index = str.find(toBeReplaced);
+        str[index] = toReplaceWith;
+        str.insert(index, "\\");
     }
 }
 
@@ -37,26 +40,22 @@ void getFileNames() {
     vector<string> paths;
     for (const auto & entry : filesystem::directory_iterator(path)) {
         temp = entry.path().string();
-/*        temp.replace(temp.begin(), temp.end(), ".", "\\");*/
-        cout << temp << endl;
-/*        paths.push_back(temp);*/
+        strReplacement(temp, '.', '\\');
+        temp.insert(2, "\\");
+        paths.push_back(temp);
 /*        readFile(temp);*/
     }
-/*    for (int i = 0; i < paths.size(); i++) {
+    for (int i = 0; i < paths.size(); i++) {
         for (const auto & entry : filesystem::directory_iterator(paths[i])) {
-            try {
-                temp = (basic_string<char> &&) entry.path();
-                paths.push_back(temp);
-                readFile(temp);
-            }
-            catch (exception &e) {
-
-            }
+            temp = entry.path().string();
+            strReplacement(temp, '.', '\\');
+            paths.push_back(temp);
+            /*readFile(temp);*/
         }
-    }*/
-/*    for (int i = 0; i < paths.size(); i++) {
+    }
+    for (int i = 0; i < paths.size(); i++) {
         cout << paths[i] << endl;
-    }*/
+    }
 }
 
 
