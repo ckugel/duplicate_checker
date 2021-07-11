@@ -9,9 +9,16 @@
 
 class Tree {
 private:
-     treeNode head;
+     treeNode &head;
+     treeNode &top;
 public:
-    
+    Tree(treeNode &head, treeNode &top);
+    void Add(treeNode &newNode);
+    //moves forward one
+    string get();
+    void reset();
+    void setFirst(treeNode &newNode);
+    void next();
 };
 
 

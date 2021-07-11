@@ -14,9 +14,8 @@ class treeNode {
 private:
     string data;
     deque<treeNode> *list;
-    string getData();
 public:
-    string getdata;
+    string getData();
     deque<treeNode> getNodes();
     treeNode setNext(treeNode nextNode);
     explicit treeNode(string data);

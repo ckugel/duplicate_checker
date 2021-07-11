@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <filesystem>
 
 #include <bitset>
 #include "LinkedList.h"
@@ -10,6 +11,7 @@ using namespace std;
 typedef bitset<8> BYTE;
 
 int main() {
+
 /*    ifstream inFile;
     size_t size = 0; // here
 
@@ -38,4 +40,14 @@ int main() {
     getchar();*/
 
     return 0;
+}
+
+void getFileNames() {
+    std::string path = "E:";
+    for (const auto & entry : filesystem::directory_iterator(path))
+
+}
+
+void readFile(string path) {
+
 }
