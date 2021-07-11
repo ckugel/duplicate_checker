@@ -11,7 +11,8 @@
 using namespace std;
 
 void readFile(string path) {
-    typedef unsigned char uint8;
+    cout << path << endl;
+/*    typedef unsigned char uint8;
     ifstream source("path", ios_base::binary);
     LinkedList list;
     while (source) {
@@ -21,7 +22,7 @@ void readFile(string path) {
         ios::pos_type after = source.tellg();
         Node *temp = new Node(reinterpret_cast<void *>(x));
         list.push(temp);
-    }
+    }*/
 }
 
 void getFileNames() {
@@ -33,7 +34,7 @@ void getFileNames() {
         paths.push_back(temp);
         readFile(temp);
     }
-    for (int i = 0; i < paths.size(); i++) {
+/*    for (int i = 0; i < paths.size(); i++) {
         for (const auto & entry : filesystem::directory_iterator(paths[i])) {
             try {
                 temp = (basic_string<char> &&) entry.path();
@@ -44,7 +45,7 @@ void getFileNames() {
 
             }
         }
-    }
+    }*/
     for (int i = 0; i < paths.size(); i++) {
         cout << paths[i] << endl;
     }
