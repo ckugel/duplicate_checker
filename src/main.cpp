@@ -10,6 +10,12 @@
 
 using namespace std;
 
+void strReplacement(string &str, const char& toBeReplaced, char toReplaceWith) {
+    while (str.find(toBeReplaced) >=0 && str.find(toBeReplaced) <= str.size()) {
+        str[str.find(toBeReplaced)] = toReplaceWith;
+    }
+}
+
 void readFile(string path) {
     cout << path << endl;
 /*    typedef unsigned char uint8;
@@ -30,9 +36,11 @@ void getFileNames() {
     string temp;
     vector<string> paths;
     for (const auto & entry : filesystem::directory_iterator(path)) {
-        temp = (basic_string<char> &&) entry.path();
-        paths.push_back(temp);
-        readFile(temp);
+        temp = entry.path().string();
+/*        temp.replace(temp.begin(), temp.end(), ".", "\\");*/
+        cout << temp << endl;
+/*        paths.push_back(temp);*/
+/*        readFile(temp);*/
     }
 /*    for (int i = 0; i < paths.size(); i++) {
         for (const auto & entry : filesystem::directory_iterator(paths[i])) {
@@ -46,13 +54,15 @@ void getFileNames() {
             }
         }
     }*/
-    for (int i = 0; i < paths.size(); i++) {
+/*    for (int i = 0; i < paths.size(); i++) {
         cout << paths[i] << endl;
-    }
+    }*/
 }
+
 
 int main() {
     getFileNames();
+
 
     return 0;
 }
