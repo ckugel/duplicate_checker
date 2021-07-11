@@ -10,24 +10,24 @@ LinkedList::LinkedList() {
     count = 0;
 }
 
-template <class T>
-T LinkedList::peak() {
-    return head->getData<T>();
+
+Node LinkedList::peak() {
+    return head->getData();
 }
 
-template <class T>
-T LinkedList::pop() {
-    T temp = head->template getData<T>();
+
+Node LinkedList::pop() {
+    Node temp = *head;
     head = head->getNext();
     count--;
     return temp;
 }
 
-template<> Node LinkedList::push<class T>(Node *newNode) {
+Node LinkedList::push(Node *newNode) {
     newNode->setNext(head);
     count++;
     head = newNode;
-    return newNode;
+    return *newNode;
 }
 
 bool LinkedList::empty() const {

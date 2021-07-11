@@ -4,8 +4,9 @@
 
 #include "Node.h"
 
-template<class V>
-Node::Node(V data) {
+Node::Node(void* data) {
+    this->data = data;
+    next = nullptr;
 }
 
 Node *Node::getNext(){
@@ -16,10 +17,7 @@ void Node::setNext(Node *next) {
     this->next = next;
 }
 
-template<class V>
-V Node::getData() {
-    return (V*) data;
+void *Node::getData() {
+    return data;
 }
-
-
 

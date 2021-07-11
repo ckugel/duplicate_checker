@@ -8,18 +8,16 @@
 
 class Node {
 public:
-    template <class V>
-    Node(V data);
+    Node(void* data);
 
     Node *getNext();
     void setNext(Node *next);
 
-    template <class V>
-    V getData();
+    void* getData();
 
 private:
-    void* data;
     Node *next;
+    void* data;
 };
 
 

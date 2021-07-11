@@ -14,12 +14,11 @@ private:
     int count;
 public:
     LinkedList();
-    template <class T>
-    T peak();
-    template <class T>
-    T pop();
-    template <class T>
+
+    Node peak();
+    Node pop();
     Node push(Node *newNode);
+
     [[nodiscard]] bool empty() const;
     [[nodiscard]] int size() const;
 };
