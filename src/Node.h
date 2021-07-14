@@ -8,10 +8,10 @@
 
 class Node {
 public:
-    Node(void* data);
+    explicit Node(void* data);
 
     Node *getNext();
-    void setNext(Node *next);
+    void setNext(Node *pNode);
 
     void* getData();
 

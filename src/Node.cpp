@@ -9,12 +9,12 @@ Node::Node(void* data) {
     next = nullptr;
 }
 
-Node *Node::getNext(){
+Node* Node::getNext(){
     return next;
 }
 
-void Node::setNext(Node *next) {
-    this->next = next;
+void Node::setNext(Node *pNode) {
+    this->next = pNode;
 }
 
 void *Node::getData() {

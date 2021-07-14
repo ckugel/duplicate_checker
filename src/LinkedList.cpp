@@ -11,7 +11,7 @@ LinkedList::LinkedList() {
 }
 
 
-Node LinkedList::peak() {
+void* LinkedList::peak() {
     return head->getData();
 }
 

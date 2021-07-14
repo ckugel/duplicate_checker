@@ -15,7 +15,7 @@ private:
 public:
     LinkedList();
 
-    Node peak();
+    void* peak();
     Node pop();
     Node push(Node *newNode);
 
