@@ -5,19 +5,22 @@
 #ifndef DUPLICATE_CHECKER_NODE_H
 #define DUPLICATE_CHECKER_NODE_H
 
+#include <iostream>
+using namespace std;
+
 
 class Node {
 public:
-    explicit Node(void* data);
+    explicit Node(string data);
 
     Node *getNext();
     void setNext(Node *pNode);
 
-    void* getData();
+    string getData();
 
 private:
     Node *next;
-    void* data;
+    string data;
 };
 
 

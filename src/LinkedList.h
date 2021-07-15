@@ -6,6 +6,10 @@
 #define DUPLICATE_CHECKER_LINKEDLIST_H
 
 
+
+#include <iostream>
+using namespace std;
+
 #include "Node.h"
 
 class LinkedList {
@@ -15,9 +19,9 @@ private:
 public:
     LinkedList();
 
-    void* peak();
+    string peak();
     Node pop();
-    Node push(Node *newNode);
+    Node push(string data);
 
     bool empty();
     int size();

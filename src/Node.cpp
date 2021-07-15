@@ -4,7 +4,7 @@
 
 #include "Node.h"
 
-Node::Node(void* data) {
+Node::Node(string data) {
     this->data = data;
     next = nullptr;
 }
@@ -17,7 +17,7 @@ void Node::setNext(Node *pNode) {
     this->next = pNode;
 }
 
-void *Node::getData() {
+string Node::getData() {
     return data;
 }
 

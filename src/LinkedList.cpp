@@ -11,7 +11,7 @@ LinkedList::LinkedList() {
 }
 
 
-void* LinkedList::peak() {
+string LinkedList::peak() {
     return head->getData();
 }
 
@@ -23,7 +23,8 @@ Node LinkedList::pop() {
     return temp;
 }
 
-Node LinkedList::push(Node *newNode) {
+Node LinkedList::push(string data) {
+    Node *newNode = new Node(data);
     newNode->setNext(head);
     count++;
     head = newNode;
