@@ -34,19 +34,18 @@ LinkedList readFile(string path) {
     return list;
 }
 
-LinkedList checkForDuplicates(vector<filesystem::path *> pathers) {
+LinkedList checkForDuplicates(vector<filesystem::path> pathers) {
     LinkedList toBeRemoved;
-    vector<filesystem::path> pathes = (vector<filesystem::path>&) pathers;
-    for (int i = 0; i < pathes.size(); i++) {
-        for (int k = 0; k < pathes.size(); k++) {
-            if (file_size(pathes[i]) != file_size(pathes[k]) ||
-                pathes[i].filename().generic_string()._Equal(pathes[k].filename().generic_string())) {
-                cout << pathes[i].generic_string() + " in terms of size and extension is different from: " +
-                        pathes[k].generic_string() << endl;
+    for (int i = 0; i < pathers.size(); i++) {
+        for (int k = 0; k < pathers.size(); k++) {
+            if (file_size(pathers[i]) != file_size(pathers[k]) ||
+                pathers[i].filename().generic_string()._Equal(pathers[k].filename().generic_string())) {
+                cout << pathers[i].generic_string() + " in terms of size and extension is different from: " +
+                        pathers[k].generic_string() << endl;
             } else {
                 bool NotDif = false;
-                LinkedList one = readFile(pathes[i].generic_string());
-                LinkedList two = readFile(pathes[k].generic_string());
+                LinkedList one = readFile(pathers[i].generic_string());
+                LinkedList two = readFile(pathers[k].generic_string());
                 while (one.peak() != nullptr || two.peak() != nullptr) {
                     if ((uint8) one.pop().getData() == (uint8) two.pop().getData()) {
 
@@ -56,7 +55,7 @@ LinkedList checkForDuplicates(vector<filesystem::path *> pathers) {
                     }
                 }
                 if (NotDif) {
-                    toBeRemoved.push(new Node((void*) &pathes[i]));
+                    toBeRemoved.push(new Node((void*) &pathers[i]));
                 }
             }
         }
@@ -99,13 +98,13 @@ vector<filesystem::path> getFileNames() {
 
 int main() {
     getFileNames();
-/*    LinkedList temp = checkForDuplicates(getFileNames());
+    LinkedList temp = checkForDuplicates(getFileNames());
 
     while (temp.peak() != nullptr) {
         filesystem::path *a = (filesystem::path*) (temp.pop().getData());
         cout << a->generic_string().c_str() << endl;
         remove(a->generic_string().c_str());
-    }*/
+    }
 
 
     return 0;
