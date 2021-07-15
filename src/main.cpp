@@ -52,7 +52,10 @@ LinkedList checkForDuplicates(vector<path> pathers) {
 }
 
 vector<path> getFileNames() {
-    string pathsz = R"(E:\coding\duplicate checker\test)";
+/*    string pathsz = R"(E:\pictures-videos\vacations*holidays)";*/
+    cout << "enter the folder: " << endl;
+    string pathsz;
+    cin >> pathsz;
     string temp;
     vector<string> pathsTemp;
     vector<path> pathsFiles;
@@ -63,10 +66,13 @@ vector<path> getFileNames() {
     for (int i = 0; i < pathsTemp.size(); i++) {
         path path1(pathsTemp[i]);
         if (is_directory(path1)) {
-            for (const auto &entry : filesystem::directory_iterator(pathsTemp[i])) {
-                temp = entry.path().generic_string();
-                pathsTemp.push_back(temp);
+            try {
+                for (const auto &entry : filesystem::directory_iterator(pathsTemp[i])) {
+                    temp = entry.path().generic_string();
+                    pathsTemp.push_back(temp);
+                }
             }
+            catch(exception ex) {}
         }
         else if (is_regular_file(path1)) {
             pathsFiles.push_back(path1);
@@ -83,14 +89,17 @@ vector<path> getFileNames() {
 
 
 int main() {
-
-
     LinkedList temp = checkForDuplicates(getFileNames());
 
     while (!temp.peak()._Equal("END")) {
         string a = temp.pop().getData();
+        cout << "removing file: " + a << endl;
         int result = remove(a.c_str());
-        cout << result << endl;
+        string str = "did not remove";
+        if (result == 0) {
+            str = "removed";
+        }
+        cout << str << endl;
     }
     return 0;
 }
