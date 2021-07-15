@@ -65,7 +65,7 @@ LinkedList checkForDuplicates(vector<filesystem::path *> pathers) {
 }
 
 vector<filesystem::path> getFileNames() {
-    string path = R"(E:\coding\duplicate_checker\test)";
+    string path = R"(E:\coding\duplicate checker\test)";
     string temp;
     vector<string> pathsTemp;
     vector<filesystem::path> pathsFiles;
