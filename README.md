@@ -2,6 +2,8 @@
 
 duplicate file remover by caleb kugel
 
+# This only works on text files and possibly png files instead please use: https://github.com/ckugel/duplicate-checker-rust
+
 # how to run it if the exe is not working
 
 ### pull this git repo
